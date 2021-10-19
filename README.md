@@ -13,7 +13,7 @@ contact and user feedback flows for Node-RED
 Both examples require the following Node-RED extension
 
 * [node-red-contrib-reusable-flows](https://github.com/rozek/node-red-contrib-reusable-flows)<br>"Reusable Flows" allow multiply needed flows to be defined once and then invoked from multiple places
-* (email)
+* [node-red-node-email](https://github.com/node-red/node-red-nodes/tree/master/social/email)<br>contains Node-RED nodes to send and receive simple emails
 
 ## User Feedback (without Token) ##
 
