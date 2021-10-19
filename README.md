@@ -35,10 +35,10 @@ The typical work flow looks as follows:
 
 For the sake of simplicity, Node-RED always expects an HTTP GET request (even for form submission) with any form input passed as query parameters. The following parameters (and input element names) are expected:
 
-* **`name`**
-* **`email`**
-* **`message`**
-* **`privacy`**
+* **`name`**<br>may contain the name of the contacting user. It is optional, may be up to 80 characters long but must not contain any control characters
+* **`email`**<br>must contain the email address of the contacting user. It is mandatory, may be up to 255 characters long and must contain a valid email address.
+* **`message`**<br>must contain the actual message to be sent. It is mandatory and may contain between 3 and 32768 characters
+* **`privacy`**<br>must contain the text "`agreed`". In the form, this parameter is represented by a checkbox which - when checked - indicates that the user has (read and) agreed to a "data privacy statement" which has to be provided on a separate web page
 
 ![](user-feedback.png)
 
