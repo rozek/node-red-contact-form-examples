@@ -42,6 +42,41 @@ For the sake of simplicity, Node-RED always expects an HTTP GET request (even fo
 
 ![](user-feedback.png)
 
+#### Additional Assets ####
+
+Besides the actual flow, this example also comes with a set of files containing the web pages and messages this flow uses:
+
+* **`contact/feedback-form.html`**<br>
+* **`contact/feedback-sent.html`**<br>
+* **`contact/name-too-long.txt`**<br>
+* **`contact/invalid-name.txt`**<br>
+* **`contact/missing-email-address.txt`**<br>
+* **`contact/email-address-too-short.txt`**<br>
+* **`contact/email-address-too-long.txt`**<br>
+* **`contact/invalid-email-address.txt`**<br>
+* **`contact/missing-message.txt`**<br>
+* **`contact/message-too-short.txt`**<br>
+* **`contact/message-too-long.txt`**<br>
+* **`contact/missing-privacy-agreement.txt`**<br>
+* **`contact/internal-error.txt`**<br>
+* **`contact/email-topic.txt`**<br>
+* **`contact/email-message.txt`**<br>
+
+Most probably, these files will have to be customized for your specific use case.
+
+#### Text Placeholders for these Assets ####
+
+Some of the assets shown above are actually templates which will have to be customized by Node-RED before being sent. These templates contain the following placeholders:
+
+* **`ServerMessage`**<br>
+* **`UserName`**<br>
+* **`EMailAddress`**<br>
+* **`UserMessage`**<br>
+
+### Installation ###
+
+### Postman Collection ###
+
 ## Contact Form (with Token) ##
 
 
