@@ -2,7 +2,7 @@
 
 contact and user feedback flows for Node-RED
 
-Often web sites offer visitors the possibility to contact the web page operator. This is usually achieved by means of a special web page containing a feedback form and a button to submit the form contents.
+Often web sites offer visitors the possibility to contact the web page operator. This is usually achieved by means of a specific web page containing a feedback form and a button to submit the form contents.
 
 This repository contains two examples for such an approach:
 
