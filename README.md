@@ -21,6 +21,8 @@ Both examples require the following Node-RED extension
 
 ## User Feedback (without Token) ##
 
+This example assumes that users visiting the page with a feedback form can be trusted, e.g., because they had to authenticate themselves before. If need be, the HTTP endpoint for this flow can be followed by an authentication node from the author's [node-red-authorization-examples](https://github.com/rozek/node-red-authorization-examples) - all three variants shown there are compatible with this flow.
+
 ![](user-feedback.png)
 
 ## Contact Form (with Token) ##
