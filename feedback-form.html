@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+  <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+
+  <meta name="apple-mobile-web-app-capable"          content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+
+  <title>Feedback</title>
+
+  <style>
+    html {
+      text-size-adjust: 100%;
+      -moz-text-size-adjust:100%; -webkit-text-size-adjust:100%;
+      -o-text-size-adjust:100%; -ms-text-size-adjust:100%;
+    }
+  </style>
+ </head>
+ <body>
+  <div class="ServerMessage">${ServerMessage}</div>
+  <form method="get">
+    <table style="width:auto"><tbody>
+      <tr valign="top">
+        <td>Name:</td>
+        <td><input name="Name" type="text" maxlength="80" size="60" value="NameInput"><br><span class="FormMessage">the input of your name is optional</span></td>
+      </tr>
+      <tr valign="top">
+        <td>EMail Address (*):</td>
+        <td><input name="EMailAddress" type="email" minlength="6" maxlength="80" size="60" required value="EMailAddressInput"><br><span class="FormMessage">&nbsp;</span></td>
+      </tr>
+      <tr valign="top">
+        <td>Message (*):</td>
+        <td><textarea name="Message" rows="5" cols="58" minlength="3" maxlength="32768" required>MessageInput</textarea><br><span class="FormMessage">&nbsp;</span></td>
+      </tr>
+      <tr valign="top">
+        <td colspan="2">
+          The data sent will only be processed for the purpose of processing your request. You can find further information in our <a href="/Privacy/index_en.html">Data Privacy Statement</a>.
+        </td>
+      </tr>
+      <tr valign="top">
+        <td colspan="2">
+          <input id="DeclarationOfConsent" name="DeclarationOfConsent" type="checkbox" required>
+          Yes, I have read the <a href="/Privacy/index_en.html">Data Privacy Statement</a> and agree (*)<br><span class="FormMessage">&nbsp;</span>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td colspan="2">
+          (All fields marked with (*) are mandatory)
+        </td>
+      </tr>
+      <tr valign="top">
+        <td colspan="2">
+         <input id="SubmitButton" type="submit" value="Submit"><br>
+        </td>
+      </tr>
+    </table>
+  </form>
+ </body>
+</html>
