@@ -23,6 +23,14 @@ Both examples require the following Node-RED extension
 
 This example assumes that users visiting the page with a feedback form can be trusted, e.g., because they had to authenticate themselves before. If need be, the HTTP endpoint for this flow can be followed by an authentication node from the author's [node-red-authorization-examples](https://github.com/rozek/node-red-authorization-examples) - all three variants shown there are compatible with this flow.
 
+#### Typical Workflow ####
+
+The typical work flow is as follows:
+
+* a visitor navigates to the page containing the feedback form (in this example, that page is located at `/feedback`. Node-RED builds and sends that page with an empty form
+* the visitor now completes this form (including the actual message) and presses a "Submit" button. Due to the way this form has been designed, modern browsers can already validate the input themselves and present proper error messages without loading the server.
+* after submission, the server (i.e., Node-RED) validates any form input and either adds an error message to the form and sends it back or submits the message (by email) and responds with a web page that indicates success.
+
 ![](user-feedback.png)
 
 ## Contact Form (with Token) ##
