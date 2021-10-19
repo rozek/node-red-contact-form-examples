@@ -17,6 +17,7 @@ Both examples require the following Node-RED extension
 
 ## User Feedback (without Token) ##
 
+![](user-feedback.png)
 
 ## Contact Form (with Token) ##
 
