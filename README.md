@@ -2,9 +2,14 @@
 
 contact and user feedback flows for Node-RED
 
+Often web sites offer a visitor the possibility to contact the web page operator. This is usually achieved by means of a special web page containing a feedback form and a button to submit the form contents.
 
-*(currently under active development, please stay tuned - to be finished by end of October)*
+This repository contains two examples for such an approach:
 
+* the first one (called "User Feedback") assumes that users visiting the feedback page can be trusted, e.g., because they had to authenticate themselves before. As a consequence, there is no kind of captcha or similar to detect bots which try to submit SPAM through this form.
+* the second one (called "Contact Form") does not make such an assumption - but it also avoids captchas, which often turn out not to be GDPR compliant. Instead, the first visit of the contact page creates a time-based token which gives the visitor a time slot of 1 minute until 15 minutes after the first visit to submit a message - exactly once. Practice shows that waiting 1 minute before being able to submit a message overtaxes bots and daunts human spammers. 
+
+> Nota bene: this work is currently in progress, do not expect it to be finished before end of October 2021
 
 > Just a small note: if you like this work and plan to use it, consider "starring" this repository (you will find the "Star" button on the top right of this page), so that I know which of my repositories to take most care of.
 
