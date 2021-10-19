@@ -25,11 +25,20 @@ This example assumes that users visiting the page with a feedback form can be tr
 
 #### Typical Workflow ####
 
-The typical work flow is as follows:
+The typical work flow looks as follows:
 
 * a visitor navigates to the page containing the feedback form (in this example, that page is located at `/feedback`. Node-RED builds and sends that page with an empty form
 * the visitor now completes this form (including the actual message) and presses a "Submit" button. Due to the way this form has been designed, modern browsers can already validate the input themselves and present proper error messages without loading the server.
 * after submission, the server (i.e., Node-RED) validates any form input and either adds an error message to the form and sends it back or submits the message (by email) and responds with a web page that indicates success.
+
+#### Request and Query Parameters ####
+
+For the sake of simplicity, Node-RED always expects an HTTP GET request (even for form submission) with any form input passed as query parameters. The following parameters (and input element names) are expected:
+
+* **`name`**
+* **`email`**
+* **`message`**
+* **`privacy`**
 
 ![](user-feedback.png)
 
