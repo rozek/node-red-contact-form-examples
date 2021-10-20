@@ -88,13 +88,29 @@ As usual, this repository contains a [collection of requests](PostmanCollection.
 
 ## Contact Form (with Token) ##
 
-This example does not make any assumptions about the visiting user
+This example does not make any assumptions about the visiting user. In order to prevent bots and humans from spamming, it uses time-based tokens (since captchas often lack GDPR-compliance). These tokens are created once the web page containg the contact firm is visited for the first time and allows the user to submit a message within a time window starting one minute after the first visit and ending 15 minutes later (practice has shown that having to wait for 1 minute before a message can be sent overtaxes bots and daunts human spammers). Each token may only be used _once_ preventing patient spammers from sending multiple emails within that time slot.
 
+While any token is transmitted in plain text (and, thus, may be inspected by the client), its value is secured with a "message digest" - as a consequence, any attempt to change the token will inevitably be recognized and lead to permission loss. The key used to generate message digests is randomly chosen at server startup - a server restart will therefore automatically invalidate any active tokens.
 
-Right now, up to 1000 users may try to submit a contact request simultaneously - all others will be rejected
+Right now, up to 1000 users may try to submit a contact request simultaneously - all others will be rejected.
 
+#### Typical Workflow ####
 
+The typical work flow looks as follows:
 
+* a visitor navigates to the page containing the contact form (in this example, that page is located at `/contact`). Node-RED builds and sends that page with an empty form
+* the visitor now completes this form (including the actual message) and presses a "Submit" button. Due to the way this form has been designed, modern browsers can already validate user input themselves and present proper error messages without loading the server.
+* after submission, the server (i.e., Node-RED) validates any form input and either adds an error message to the form and sends it back or submits the message (by email) and responds with a web page that indicates success.
+
+#### Request and Query Parameters ####
+
+For the sake of simplicity, Node-RED always expects an HTTP GET request (even for form submission) with any form input passed as query parameters. The following parameters (and input element names) are expected:
+
+* **`token`**<br>must contain a valid contact token. It will be created by the server and "hidden" from the contacting user
+* **`name`**<br>may contain the name of the contacting user. It is optional, may be up to 80 characters long but must not contain any control characters
+* **`email`**<br>must contain the email address of the contacting user. It is mandatory, may be up to 255 characters long and must contain a syntactically valid email address.
+* **`message`**<br>must contain the actual message to be sent. It is mandatory and may contain between 3 and 32768 characters
+* **`privacy`**<br>must contain the text "`agreed`". In the form, this parameter is represented by a checkbox that - when checked - indicates that the user has (read and) agreed to a "data privacy statement" which has to be provided on a separate web page
 
 ![](contact-form.png)
 
