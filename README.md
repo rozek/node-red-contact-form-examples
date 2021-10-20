@@ -46,21 +46,21 @@ For the sake of simplicity, Node-RED always expects an HTTP GET request (even fo
 
 Besides the actual flow, this example also comes with a set of files containing the web pages and messages this flow uses:
 
-* **`contact/feedback-form.html`**<br>contains the web page with the HTML form a user has to complete in order to send some feedback
-* **`contact/feedback-sent.html`**<br>contains the web page which informs a user about successfull email submission
-* **`contact/name-too-long.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered user name is longer than 80 characters
-* **`contact/invalid-name.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered user name contains invalid (i.e., control) characters
-* **`contact/missing-email-address.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if no email address is was entered
-* **`contact/email-address-too-short.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered email address is shorter than 6 characters
-* **`contact/email-address-too-long.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered email address is longer than 255 characters
-* **`contact/invalid-email-address.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered email address looks (syntactically) invalid
-* **`contact/missing-message.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if no feedback message was entered
-* **`contact/message-too-short.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered feedback message is shorter than 3 characters
-* **`contact/message-too-long.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered feedback message is longer than 32768 characters
-* **`contact/missing-privacy-agreement.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if a user forgot to agree to the data privacy statement 
-* **`contact/internal-error.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` in case of an internal error
-* **`contact/email-topic.txt`**<br>defines the (constant) "subject" of the feedback email. Chosen wisely, it may be used to filter feedback messages within an email client
-* **`contact/email-message.txt`**<br>contains a template for the actual feedback email. It should contain the placeholders `${UserName}`, `${EMailAddress}` and `${UserMessage}` - all these placeholders will be replaced by their related form inputs before the email is sent.
+* **`feedback/feedback-form.html`**<br>contains the web page with the HTML form a user has to complete in order to send some feedback
+* **`feedback/feedback-sent.html`**<br>contains the web page which informs a user about successfull email submission
+* **`feedback/name-too-long.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered user name is longer than 80 characters
+* **`feedback/invalid-name.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered user name contains invalid (i.e., control) characters
+* **`feedback/missing-email-address.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if no email address is was entered
+* **`feedback/email-address-too-short.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered email address is shorter than 6 characters
+* **`feedback/email-address-too-long.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered email address is longer than 255 characters
+* **`feedback/invalid-email-address.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered email address looks (syntactically) invalid
+* **`feedback/missing-message.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if no feedback message was entered
+* **`feedback/message-too-short.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered feedback message is shorter than 3 characters
+* **`feedback/message-too-long.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered feedback message is longer than 32768 characters
+* **`feedback/missing-privacy-agreement.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if a user forgot to agree to the data privacy statement 
+* **`feedback/internal-error.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` in case of an internal error
+* **`feedback/email-topic.txt`**<br>defines the (constant) "subject" of the feedback email. Chosen wisely, it may be used to filter feedback messages within an email client
+* **`feedback/email-message.txt`**<br>contains a template for the actual feedback email. It should contain the placeholders `${UserName}`, `${EMailAddress}` and `${UserMessage}` - all these placeholders will be replaced by their related form inputs before the email is sent.
 
 Most probably, these files will have to be customized for your specific use case.
 
@@ -75,11 +75,16 @@ Some of the assets shown above are actually templates which will have to be cust
 
 ### Installation ###
 
+This feedback mechanism may be used as follows:
 
+* import [this flow](feedback.json) into your Node-RED instance
+* copy all assets files into a subfolder `feedback` within your Node-RED working directory
+* customize these assets (particularly `feedback/feedback-form.html` and `feedback/feedback-sent.html`) as needed
+* provide a file `DataPrivacyStatement.html` in your Node-RED working directory which contains a web page with your data privacy statement
 
 ### Postman Collection ###
 
-
+As usual, this repository contains a [collection of requests](PostmanCollection.json) which is to be imported into a [Postman](https://www.postman.com/) instance and simplfies testing the feedback mechanism.
 
 ## Contact Form (with Token) ##
 
