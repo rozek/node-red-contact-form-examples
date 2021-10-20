@@ -78,6 +78,7 @@ Some of the assets shown above are actually templates which will have to be cust
 This feedback mechanism may be used as follows:
 
 * import [this flow](feedback.json) into your Node-RED instance
+* configure the "email" node, i.e. enter service details and credentials of an email account you may use for sending email messages
 * copy all assets files into a subfolder `feedback` within your Node-RED working directory
 * customize these assets (particularly `feedback/feedback-form.html` and `feedback/feedback-sent.html`) as needed
 * provide a file `DataPrivacyStatement.html` in your Node-RED working directory which contains a web page with your data privacy statement
@@ -153,6 +154,7 @@ Some of the assets shown above are actually templates which will have to be cust
 This feedback mechanism may be used as follows:
 
 * import [this flow](contact.json) into your Node-RED instance
+* configure the "email" node, i.e. enter service details and credentials of an email account you may use for sending email messages
 * copy all assets files into a subfolder `contact` within your Node-RED working directory
 * customize these assets (particularly `contact/contact-form.html` and `contact/contact-made.html`) as needed
 * provide a file `DataPrivacyStatement.html` in your Node-RED working directory which contains a web page with your data privacy statement
