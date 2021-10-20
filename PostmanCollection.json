@@ -1,0 +1,874 @@
+{
+	"info": {
+		"_postman_id": "368c67f2-0a5d-408c-a45b-cd9d023e7130",
+		"name": "node-red-contact-form-examples",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Feedback",
+			"item": [
+				{
+					"name": "get empty form",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/feedback",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"feedback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "name too long",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/feedback?name=123456789012345678901234567890123456789012345678901234567890123456789012345678901&message=not empty",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"feedback"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "123456789012345678901234567890123456789012345678901234567890123456789012345678901"
+								},
+								{
+									"key": "message",
+									"value": "not empty"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "missing email address",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/feedback?name=a b&message=not empty",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"feedback"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "a b"
+								},
+								{
+									"key": "message",
+									"value": "not empty"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "email address too short",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/feedback?name=a b&email=a&message=not empty",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"feedback"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "a b"
+								},
+								{
+									"key": "email",
+									"value": "a"
+								},
+								{
+									"key": "message",
+									"value": "not empty"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "email address too long",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/feedback?name=a b&email=123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345@c.de&message=not empty",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"feedback"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "a b"
+								},
+								{
+									"key": "email",
+									"value": "123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345@c.de"
+								},
+								{
+									"key": "message",
+									"value": "not empty"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invalid email address",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/feedback?name=a b&email=a@b@c.de&message=not empty",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"feedback"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "a b"
+								},
+								{
+									"key": "email",
+									"value": "a@b@c.de"
+								},
+								{
+									"key": "message",
+									"value": "not empty"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "missing message",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/feedback?name=a b&email=a.b@c.de",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"feedback"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "a b"
+								},
+								{
+									"key": "email",
+									"value": "a.b@c.de"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "message too short",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/feedback?name=a b&email=a.b@c.de&message=a",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"feedback"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "a b"
+								},
+								{
+									"key": "email",
+									"value": "a.b@c.de"
+								},
+								{
+									"key": "message",
+									"value": "a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "missing agreement",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/feedback?name=a b&email=a.b@c.de&message=a message",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"feedback"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "a b"
+								},
+								{
+									"key": "email",
+									"value": "a.b@c.de"
+								},
+								{
+									"key": "message",
+									"value": "a message"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "submit complete form",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/feedback?name=a b&email=a.b@c.de&message=hello!&privacy=agreed",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"feedback"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "a b"
+								},
+								{
+									"key": "email",
+									"value": "a.b@c.de"
+								},
+								{
+									"key": "message",
+									"value": "hello!"
+								},
+								{
+									"key": "privacy",
+									"value": "agreed"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contact Form",
+			"item": [
+				{
+					"name": "get empty form (with token)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"  let Response = pm.response.text()",
+									"",
+									"  let Match = Response.match(/<input[^>]+value=\"([^\"]+)\">/)",
+									"  if (Match != null) {",
+									"    pm.collectionVariables.set('contact_token', Match[1])",
+									"  }",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/contact",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"contact"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "name too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"  let Response = pm.response.text()",
+									"",
+									"  let Match = Response.match(/<input[^>]+value=\"([^\"]+)\">/)",
+									"  if (Match != null) {",
+									"    pm.collectionVariables.set('contact_token', Match[1])",
+									"  }",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/contact?token={{contact_token}}&name=123456789012345678901234567890123456789012345678901234567890123456789012345678901&message=not empty",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"contact"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{contact_token}}"
+								},
+								{
+									"key": "name",
+									"value": "123456789012345678901234567890123456789012345678901234567890123456789012345678901"
+								},
+								{
+									"key": "message",
+									"value": "not empty"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "missing email address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"  let Response = pm.response.text()",
+									"",
+									"  let Match = Response.match(/<input[^>]+value=\"([^\"]+)\">/)",
+									"  if (Match != null) {",
+									"    pm.collectionVariables.set('contact_token', Match[1])",
+									"  }",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/contact?token={{contact_token}}&name=a b&message=not empty",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"contact"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{contact_token}}"
+								},
+								{
+									"key": "name",
+									"value": "a b"
+								},
+								{
+									"key": "message",
+									"value": "not empty"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "email address too short",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"  let Response = pm.response.text()",
+									"",
+									"  let Match = Response.match(/<input[^>]+value=\"([^\"]+)\">/)",
+									"  if (Match != null) {",
+									"    pm.collectionVariables.set('contact_token', Match[1])",
+									"  }",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/contact?token={{contact_token}}&name=a b&email=a&message=not empty",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"contact"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{contact_token}}"
+								},
+								{
+									"key": "name",
+									"value": "a b"
+								},
+								{
+									"key": "email",
+									"value": "a"
+								},
+								{
+									"key": "message",
+									"value": "not empty"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "email address too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"  let Response = pm.response.text()",
+									"",
+									"  let Match = Response.match(/<input[^>]+value=\"([^\"]+)\">/)",
+									"  if (Match != null) {",
+									"    pm.collectionVariables.set('contact_token', Match[1])",
+									"  }",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/contact?token={{contact_token}}&name=a b&email=123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345@c.de&message=not empty",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"contact"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{contact_token}}"
+								},
+								{
+									"key": "name",
+									"value": "a b"
+								},
+								{
+									"key": "email",
+									"value": "123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345@c.de"
+								},
+								{
+									"key": "message",
+									"value": "not empty"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invalid email address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"  let Response = pm.response.text()",
+									"",
+									"  let Match = Response.match(/<input[^>]+value=\"([^\"]+)\">/)",
+									"  if (Match != null) {",
+									"    pm.collectionVariables.set('contact_token', Match[1])",
+									"  }",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/contact?token={{contact_token}}&name=a b&email=a@b@c.de&message=not empty",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"contact"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{contact_token}}"
+								},
+								{
+									"key": "name",
+									"value": "a b"
+								},
+								{
+									"key": "email",
+									"value": "a@b@c.de"
+								},
+								{
+									"key": "message",
+									"value": "not empty"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "missing message",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"  let Response = pm.response.text()",
+									"",
+									"  let Match = Response.match(/<input[^>]+value=\"([^\"]+)\">/)",
+									"  if (Match != null) {",
+									"    pm.collectionVariables.set('contact_token', Match[1])",
+									"  }",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/contact?token={{contact_token}}&name=a b&email=a.b@c.de",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"contact"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{contact_token}}"
+								},
+								{
+									"key": "name",
+									"value": "a b"
+								},
+								{
+									"key": "email",
+									"value": "a.b@c.de"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "message too short",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"  let Response = pm.response.text()",
+									"",
+									"  let Match = Response.match(/<input[^>]+value=\"([^\"]+)\">/)",
+									"  if (Match != null) {",
+									"    pm.collectionVariables.set('contact_token', Match[1])",
+									"  }",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/contact?token={{contact_token}}&name=a b&email=a.b@c.de&message=a",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"contact"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{contact_token}}"
+								},
+								{
+									"key": "name",
+									"value": "a b"
+								},
+								{
+									"key": "email",
+									"value": "a.b@c.de"
+								},
+								{
+									"key": "message",
+									"value": "a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "missing agreement",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"  let Response = pm.response.text()",
+									"",
+									"  let Match = Response.match(/<input[^>]+value=\"([^\"]+)\">/)",
+									"  if (Match != null) {",
+									"    pm.collectionVariables.set('contact_token', Match[1])",
+									"  }",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/contact?token={{contact_token}}&name=a b&email=a.b@c.de&message=a message",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"contact"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{contact_token}}"
+								},
+								{
+									"key": "name",
+									"value": "a b"
+								},
+								{
+									"key": "email",
+									"value": "a.b@c.de"
+								},
+								{
+									"key": "message",
+									"value": "a message"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "submit complete form",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"  let Response = pm.response.text()",
+									"",
+									"  let Match = Response.match(/<input[^>]+value=\"([^\"]+)\">/)",
+									"  if (Match != null) {",
+									"    pm.collectionVariables.set('contact_token', Match[1])",
+									"  }",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/contact?token={{contact_token}}&name=a b&email=a.b@c.de&message=hello!&privacy=agreed",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"contact"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{contact_token}}"
+								},
+								{
+									"key": "name",
+									"value": "a b"
+								},
+								{
+									"key": "email",
+									"value": "a.b@c.de"
+								},
+								{
+									"key": "message",
+									"value": "hello!"
+								},
+								{
+									"key": "privacy",
+									"value": "agreed"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{Password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{Username}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseURL",
+			"value": "127.0.0.1:1880"
+		},
+		{
+			"key": "Username",
+			"value": ""
+		},
+		{
+			"key": "Password",
+			"value": ""
+		},
+		{
+			"key": "contact_token",
+			"value": ""
+		}
+	]
+}
