@@ -91,6 +91,8 @@ As usual, this repository contains a [collection of requests](PostmanCollection.
 This example does not make any assumptions about the visiting user
 
 
+Right now, up to 1000 users may try to submit a contact request simultaneously - all others will be rejected
+
 
 
 
@@ -102,6 +104,7 @@ Besides the actual flow, this example also comes with a set of files containing 
 
 * **`contact/contact-form.html`**<br>contains the web page with the HTML form a user has to complete in order to contact the web page operator. It should contain the placeholders `${ServerMessage}`, `${UserName}`, `${EMailAddress}`, `${UserMessage}` and `${Token}` - all these placeholders will be replaced with their values before the web page is presented to the user
 * **`contact/contact-made.html`**<br>contains the web page which informs a user about a successful approach
+* **`contact/contact-overload.html`**<br>contains the web page which is sent when too many users are trying to approach the web page operator simultaneously
 * **`contact/name-too-long.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered user name is longer than 80 characters
 * **`contact/invalid-name.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered user name contains invalid (i.e., control) characters
 * **`contact/missing-email-address.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if no email address is was entered
