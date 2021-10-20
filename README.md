@@ -48,18 +48,18 @@ Besides the actual flow, this example also comes with a set of files containing 
 
 * **`contact/feedback-form.html`**<br>contains the web page 
 * **`contact/feedback-sent.html`**<br>
-* **`contact/name-too-long.txt`**<br>
-* **`contact/invalid-name.txt`**<br>
-* **`contact/missing-email-address.txt`**<br>
-* **`contact/email-address-too-short.txt`**<br>
-* **`contact/email-address-too-long.txt`**<br>
-* **`contact/invalid-email-address.txt`**<br>
-* **`contact/missing-message.txt`**<br>
-* **`contact/message-too-short.txt`**<br>
-* **`contact/message-too-long.txt`**<br>
-* **`contact/missing-privacy-agreement.txt`**<br>
-* **`contact/internal-error.txt`**<br>
-* **`contact/email-topic.txt`**<br>
+* **`contact/name-too-long.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered user name is longer than 80 characters
+* **`contact/invalid-name.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered user name contains invalid (i.e., control) characters
+* **`contact/missing-email-address.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if no email address is was entered
+* **`contact/email-address-too-short.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered email address is shorter than 6 characters
+* **`contact/email-address-too-long.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered email address is longer than 255 characters
+* **`contact/invalid-email-address.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered email address looks (syntactically) invalid
+* **`contact/missing-message.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if no feedback message was entered
+* **`contact/message-too-short.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered feedback message is shorter than 3 characters
+* **`contact/message-too-long.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered feedback message is longer than 32768 characters
+* **`contact/missing-privacy-agreement.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if a user forgot to agree to the data privacy statement 
+* **`contact/internal-error.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` in case of an internal error
+* **`contact/email-topic.txt`**<br>defines the (constant) "subject" of the feedback email. Chosen wisely, it may be used to filter feedback messages within an email client
 * **`contact/email-message.txt`**<br>contains a template for the actual feedback email. It should contain the placeholders `${UserName}`, `${EMailAddress}` and `${UserMessage}` - all these placeholders will be replaced by their related form inputs before the email is sent.
 
 Most probably, these files will have to be customized for your specific use case.
