@@ -46,8 +46,8 @@ For the sake of simplicity, Node-RED always expects an HTTP GET request (even fo
 
 Besides the actual flow, this example also comes with a set of files containing the web pages and messages this flow uses:
 
-* **`contact/feedback-form.html`**<br>contains the web page 
-* **`contact/feedback-sent.html`**<br>
+* **`contact/feedback-form.html`**<br>contains the web page with the HTML form a user has to complete in order to send some feedback
+* **`contact/feedback-sent.html`**<br>contains the web page which informs a user about successfull email submission
 * **`contact/name-too-long.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered user name is longer than 80 characters
 * **`contact/invalid-name.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered user name contains invalid (i.e., control) characters
 * **`contact/missing-email-address.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if no email address is was entered
