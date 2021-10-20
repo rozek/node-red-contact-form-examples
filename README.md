@@ -27,8 +27,8 @@ This example assumes that users visiting the page with a feedback form can be tr
 
 The typical work flow looks as follows:
 
-* a visitor navigates to the page containing the feedback form (in this example, that page is located at `/feedback`. Node-RED builds and sends that page with an empty form
-* the visitor now completes this form (including the actual message) and presses a "Submit" button. Due to the way this form has been designed, modern browsers can already validate the input themselves and present proper error messages without loading the server.
+* a visitor navigates to the page containing the feedback form (in this example, that page is located at `/feedback`). Node-RED builds and sends that page with an empty form
+* the visitor now completes this form (including the actual message) and presses a "Submit" button. Due to the way this form has been designed, modern browsers can already validate user input themselves and present proper error messages without loading the server.
 * after submission, the server (i.e., Node-RED) validates any form input and either adds an error message to the form and sends it back or submits the message (by email) and responds with a web page that indicates success.
 
 #### Request and Query Parameters ####
@@ -36,9 +36,9 @@ The typical work flow looks as follows:
 For the sake of simplicity, Node-RED always expects an HTTP GET request (even for form submission) with any form input passed as query parameters. The following parameters (and input element names) are expected:
 
 * **`name`**<br>may contain the name of the contacting user. It is optional, may be up to 80 characters long but must not contain any control characters
-* **`email`**<br>must contain the email address of the contacting user. It is mandatory, may be up to 255 characters long and must contain a valid email address.
+* **`email`**<br>must contain the email address of the contacting user. It is mandatory, may be up to 255 characters long and must contain a syntactically valid email address.
 * **`message`**<br>must contain the actual message to be sent. It is mandatory and may contain between 3 and 32768 characters
-* **`privacy`**<br>must contain the text "`agreed`". In the form, this parameter is represented by a checkbox which - when checked - indicates that the user has (read and) agreed to a "data privacy statement" which has to be provided on a separate web page
+* **`privacy`**<br>must contain the text "`agreed`". In the form, this parameter is represented by a checkbox that - when checked - indicates that the user has (read and) agreed to a "data privacy statement" which has to be provided on a separate web page
 
 ![](user-feedback.png)
 
@@ -46,8 +46,8 @@ For the sake of simplicity, Node-RED always expects an HTTP GET request (even fo
 
 Besides the actual flow, this example also comes with a set of files containing the web pages and messages this flow uses:
 
-* **`feedback/feedback-form.html`**<br>contains the web page with the HTML form a user has to complete in order to send some feedback
-* **`feedback/feedback-sent.html`**<br>contains the web page which informs a user about successfull email submission
+* **`feedback/feedback-form.html`**<br>contains the web page with the HTML form a user has to complete in order to send some feedback. It should contain the placeholders `${ServerMessage}`, `${UserName}`, `${EMailAddress}` and `${UserMessage}` - all these placeholders will be replaced with their values before the web page is sent to the user
+* **`feedback/feedback-sent.html`**<br>contains the web page which informs a user about successfull feedback submission
 * **`feedback/name-too-long.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered user name is longer than 80 characters
 * **`feedback/invalid-name.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered user name contains invalid (i.e., control) characters
 * **`feedback/missing-email-address.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if no email address is was entered
