@@ -875,7 +875,7 @@
         "port": "465",
         "secure": true,
         "tls": true,
-        "name": "a-rozek@mail.de",
+        "name": "",
         "dname": "email",
         "x": 310,
         "y": 100,
