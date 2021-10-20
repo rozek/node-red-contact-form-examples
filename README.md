@@ -46,7 +46,7 @@ For the sake of simplicity, Node-RED always expects an HTTP GET request (even fo
 
 Besides the actual flow, this example also comes with a set of files containing the web pages and messages this flow uses:
 
-* **`contact/feedback-form.html`**<br>
+* **`contact/feedback-form.html`**<br>contains the web page 
 * **`contact/feedback-sent.html`**<br>
 * **`contact/name-too-long.txt`**<br>
 * **`contact/invalid-name.txt`**<br>
@@ -60,7 +60,7 @@ Besides the actual flow, this example also comes with a set of files containing 
 * **`contact/missing-privacy-agreement.txt`**<br>
 * **`contact/internal-error.txt`**<br>
 * **`contact/email-topic.txt`**<br>
-* **`contact/email-message.txt`**<br>
+* **`contact/email-message.txt`**<br>contains a template for the actual feedback email. It should contain the placeholders `${UserName}`, `${EMailAddress}` and `${UserMessage}` - all these placeholders will be replaced by their related form inputs before the email is sent.
 
 Most probably, these files will have to be customized for your specific use case.
 
