@@ -1,4 +1,4 @@
-Name:          ${UserName}
-EMail-Adresse: ${EMailAddress}
-Nachricht:
+Name:         ${UserName}
+EMail Adress: ${EMailAddress}
+Message:
 ${UserMessage}
