@@ -1,0 +1,884 @@
+[
+    {
+        "id": "60c389754493ac06",
+        "type": "comment",
+        "z": "9ef077928ad5b75f",
+        "name": "User Feedback (at /feedback)",
+        "info": "",
+        "x": 140,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "b2a101a38a71e448",
+        "type": "comment",
+        "z": "9ef077928ad5b75f",
+        "name": "without Token",
+        "info": "",
+        "x": 370,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "a49c7e54b2364bb2",
+        "type": "http in",
+        "z": "9ef077928ad5b75f",
+        "name": "",
+        "url": "/feedback",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 100,
+        "wires": [
+            [
+                "55701623d807b4de"
+            ]
+        ]
+    },
+    {
+        "id": "e22102395f7cc6b2",
+        "type": "http response",
+        "z": "9ef077928ad5b75f",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 530,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "bced86569ba170d0",
+        "type": "inject",
+        "z": "9ef077928ad5b75f",
+        "name": "at Startup",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 220,
+        "wires": [
+            [
+                "43dfa4b1c9250ca0"
+            ]
+        ]
+    },
+    {
+        "id": "43dfa4b1c9250ca0",
+        "type": "file in",
+        "z": "9ef077928ad5b75f",
+        "name": "feedback-form.html",
+        "filename": "feedback/feedback-form.html",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "35f7e786d0bf64d7"
+            ]
+        ]
+    },
+    {
+        "id": "35f7e786d0bf64d7",
+        "type": "change",
+        "z": "9ef077928ad5b75f",
+        "name": "save in flow context",
+        "rules": [
+            {
+                "t": "set",
+                "p": "feedback-form",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 280,
+        "wires": [
+            [
+                "06a3d1fc0e2ba293"
+            ]
+        ]
+    },
+    {
+        "id": "408713e4db5e4bab",
+        "type": "file in",
+        "z": "9ef077928ad5b75f",
+        "name": "name-too-long.txt",
+        "filename": "feedback/name-too-long.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 150,
+        "y": 360,
+        "wires": [
+            [
+                "20792b62a09e31e1"
+            ]
+        ]
+    },
+    {
+        "id": "b66b47586ea6cefd",
+        "type": "file in",
+        "z": "9ef077928ad5b75f",
+        "name": "invalid-name.txt",
+        "filename": "feedback/invalid-name.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 140,
+        "y": 400,
+        "wires": [
+            [
+                "2af3de21b7d6ad59"
+            ]
+        ]
+    },
+    {
+        "id": "87c680c264ca918a",
+        "type": "file in",
+        "z": "9ef077928ad5b75f",
+        "name": "missing-email-address.txt",
+        "filename": "feedback/missing-email-address.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 170,
+        "y": 440,
+        "wires": [
+            [
+                "5d94615762b647cc"
+            ]
+        ]
+    },
+    {
+        "id": "87a9aa01700f04e6",
+        "type": "file in",
+        "z": "9ef077928ad5b75f",
+        "name": "email-address-too-short.txt",
+        "filename": "feedback/email-address-too-short.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 180,
+        "y": 480,
+        "wires": [
+            [
+                "65159dda437f7d50"
+            ]
+        ]
+    },
+    {
+        "id": "53117ce882ddf170",
+        "type": "file in",
+        "z": "9ef077928ad5b75f",
+        "name": "email-address-too-long.txt",
+        "filename": "feedback/email-address-too-long.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 180,
+        "y": 520,
+        "wires": [
+            [
+                "2abac5118e90a3d0"
+            ]
+        ]
+    },
+    {
+        "id": "dcf4773615b1f0aa",
+        "type": "file in",
+        "z": "9ef077928ad5b75f",
+        "name": "invalid-email-address.txt",
+        "filename": "feedback/invalid-email-address.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 170,
+        "y": 560,
+        "wires": [
+            [
+                "4cd822516a11c01f"
+            ]
+        ]
+    },
+    {
+        "id": "29385e8a4d3df266",
+        "type": "file in",
+        "z": "9ef077928ad5b75f",
+        "name": "missing-message.txt",
+        "filename": "feedback/missing-message.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 160,
+        "y": 600,
+        "wires": [
+            [
+                "51726978e16431be"
+            ]
+        ]
+    },
+    {
+        "id": "c41ccab92840647e",
+        "type": "file in",
+        "z": "9ef077928ad5b75f",
+        "name": "message-too-short.txt",
+        "filename": "feedback/message-too-short.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 160,
+        "y": 640,
+        "wires": [
+            [
+                "27063dcf4950c05c"
+            ]
+        ]
+    },
+    {
+        "id": "13aef1641682bf9c",
+        "type": "file in",
+        "z": "9ef077928ad5b75f",
+        "name": "message-too-long.txt",
+        "filename": "feedback/message-too-long.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 160,
+        "y": 680,
+        "wires": [
+            [
+                "c1707d70ff1ef7eb"
+            ]
+        ]
+    },
+    {
+        "id": "a6cd14f135ed6af9",
+        "type": "file in",
+        "z": "9ef077928ad5b75f",
+        "name": "missing-privacy-agreement.txt",
+        "filename": "feedback/missing-privacy-agreement.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 190,
+        "y": 720,
+        "wires": [
+            [
+                "f9fcb11d4a0fcf24"
+            ]
+        ]
+    },
+    {
+        "id": "2accd405d04fce07",
+        "type": "file in",
+        "z": "9ef077928ad5b75f",
+        "name": "internal-error.txt",
+        "filename": "feedback/internal-error.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 140,
+        "y": 760,
+        "wires": [
+            [
+                "950aaa20156ce359"
+            ]
+        ]
+    },
+    {
+        "id": "20792b62a09e31e1",
+        "type": "change",
+        "z": "9ef077928ad5b75f",
+        "name": "save in flow context",
+        "rules": [
+            {
+                "t": "set",
+                "p": "name-too-long",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 360,
+        "wires": [
+            [
+                "b66b47586ea6cefd"
+            ]
+        ]
+    },
+    {
+        "id": "2af3de21b7d6ad59",
+        "type": "change",
+        "z": "9ef077928ad5b75f",
+        "name": "save in flow context",
+        "rules": [
+            {
+                "t": "set",
+                "p": "invalid-name",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 400,
+        "wires": [
+            [
+                "87c680c264ca918a"
+            ]
+        ]
+    },
+    {
+        "id": "5d94615762b647cc",
+        "type": "change",
+        "z": "9ef077928ad5b75f",
+        "name": "save in flow context",
+        "rules": [
+            {
+                "t": "set",
+                "p": "missing-email-address",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 440,
+        "wires": [
+            [
+                "87a9aa01700f04e6"
+            ]
+        ]
+    },
+    {
+        "id": "65159dda437f7d50",
+        "type": "change",
+        "z": "9ef077928ad5b75f",
+        "name": "save in flow context",
+        "rules": [
+            {
+                "t": "set",
+                "p": "email-address-too-short",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 480,
+        "wires": [
+            [
+                "53117ce882ddf170"
+            ]
+        ]
+    },
+    {
+        "id": "2abac5118e90a3d0",
+        "type": "change",
+        "z": "9ef077928ad5b75f",
+        "name": "save in flow context",
+        "rules": [
+            {
+                "t": "set",
+                "p": "email-address-too-long",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 520,
+        "wires": [
+            [
+                "dcf4773615b1f0aa"
+            ]
+        ]
+    },
+    {
+        "id": "4cd822516a11c01f",
+        "type": "change",
+        "z": "9ef077928ad5b75f",
+        "name": "save in flow context",
+        "rules": [
+            {
+                "t": "set",
+                "p": "invalid-email-address",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 560,
+        "wires": [
+            [
+                "29385e8a4d3df266"
+            ]
+        ]
+    },
+    {
+        "id": "51726978e16431be",
+        "type": "change",
+        "z": "9ef077928ad5b75f",
+        "name": "save in flow context",
+        "rules": [
+            {
+                "t": "set",
+                "p": "missing-message",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 600,
+        "wires": [
+            [
+                "c41ccab92840647e"
+            ]
+        ]
+    },
+    {
+        "id": "27063dcf4950c05c",
+        "type": "change",
+        "z": "9ef077928ad5b75f",
+        "name": "save in flow context",
+        "rules": [
+            {
+                "t": "set",
+                "p": "message-too-short",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 640,
+        "wires": [
+            [
+                "13aef1641682bf9c"
+            ]
+        ]
+    },
+    {
+        "id": "c1707d70ff1ef7eb",
+        "type": "change",
+        "z": "9ef077928ad5b75f",
+        "name": "save in flow context",
+        "rules": [
+            {
+                "t": "set",
+                "p": "message-too-long",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 680,
+        "wires": [
+            [
+                "a6cd14f135ed6af9"
+            ]
+        ]
+    },
+    {
+        "id": "f9fcb11d4a0fcf24",
+        "type": "change",
+        "z": "9ef077928ad5b75f",
+        "name": "save in flow context",
+        "rules": [
+            {
+                "t": "set",
+                "p": "missing-privacy-agreement",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 720,
+        "wires": [
+            [
+                "2accd405d04fce07"
+            ]
+        ]
+    },
+    {
+        "id": "950aaa20156ce359",
+        "type": "change",
+        "z": "9ef077928ad5b75f",
+        "name": "save in flow context",
+        "rules": [
+            {
+                "t": "set",
+                "p": "internal-error",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 760,
+        "wires": [
+            [
+                "cd8d0dcd5151fae1"
+            ]
+        ]
+    },
+    {
+        "id": "9e2933e75a1af3e2",
+        "type": "debug",
+        "z": "9ef077928ad5b75f",
+        "name": "",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "'all msg texts loaded'",
+        "statusType": "jsonata",
+        "x": 510,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "351587709930652b",
+        "type": "debug",
+        "z": "9ef077928ad5b75f",
+        "name": "show failure",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "'could not load message texts'",
+        "statusType": "jsonata",
+        "x": 490,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "149b86feab706b63",
+        "type": "catch",
+        "z": "9ef077928ad5b75f",
+        "name": "",
+        "scope": [
+            "43dfa4b1c9250ca0",
+            "408713e4db5e4bab",
+            "b66b47586ea6cefd",
+            "87c680c264ca918a",
+            "87a9aa01700f04e6",
+            "53117ce882ddf170",
+            "dcf4773615b1f0aa",
+            "29385e8a4d3df266",
+            "c41ccab92840647e",
+            "13aef1641682bf9c",
+            "a6cd14f135ed6af9",
+            "2accd405d04fce07",
+            "cd8d0dcd5151fae1",
+            "06ee071aefbbf7e0",
+            "06a3d1fc0e2ba293"
+        ],
+        "uncaught": false,
+        "x": 120,
+        "y": 880,
+        "wires": [
+            [
+                "351587709930652b"
+            ]
+        ]
+    },
+    {
+        "id": "55701623d807b4de",
+        "type": "function",
+        "z": "9ef077928ad5b75f",
+        "name": "process request",
+        "func": "  let UserName     = (msg.req.query.name    || '').trim()\n  let EMailAddress = (msg.req.query.email   || '').trim()\n  let UserMessage  = (msg.req.query.message || '').trim()\n  let Privacy      = (msg.req.query.privacy || '').trim()\n\n  msg.topic   = ''\n  msg.payload = ''\n\n  msg.FormSettings = {\n    UserName, EMailAddress, UserMessage, Privacy,\n    ServerMessage:''\n  }\n\n  if (UserName + EMailAddress + UserMessage === '') {\n    return [msg,null]                             // deliver empty feedback form\n  }\n\n/**** validate given values ****/\n\n  if (UserName.length > 80) {\n    msg.FormSettings.ServerMessage = flow.get('name-too-long') || 'name-too-long'\n    return [msg,null]\n  }\n\n  if (/^[\\x00-\\x1F\\x7F-\\x9F\\u2028\\u2029\\uFFF9-\\uFFFB]$/.test(UserName)) {\n    msg.FormSettings.ServerMessage = flow.get('invalid-name') || 'invalid-name'\n    return [msg,null]\n  }\n\n  if (EMailAddress === '') {\n    msg.FormSettings.ServerMessage = flow.get('missing-email-address') || 'missing-email-address'\n    return [msg,null]\n  }\n\n  if (EMailAddress.length < 6) {\n    msg.FormSettings.ServerMessage = flow.get('email-address-too-short') || 'email-address-too-short'\n    return [msg,null]\n  }\n\n  if (EMailAddress.length > 255) {\n    msg.FormSettings.ServerMessage = flow.get('email-address-too-long') || 'email-address-too-long'\n    return [msg,null]\n  }\n\n  let EMailAddressPattern = /^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-z0-9-]+\\.)+[a-z]{2,}))$/i\n                       // RegExp was basically taken from http://emailregex.com/\n  if (! EMailAddressPattern.test(EMailAddress)) {\n    msg.FormSettings.ServerMessage = flow.get('invalid-email-address') || 'invalid-email-address'\n    return [msg,null]\n  }\n\n  if (UserMessage === '') {\n    msg.FormSettings.ServerMessage = flow.get('missing-message') || 'missing-message'\n    return [msg,null]\n  }\n\n  if (UserMessage.length < 3) {\n    msg.FormSettings.ServerMessage = flow.get('message-too-short') || 'message-too-short'\n    return [msg,null]\n  }\n\n  if (UserMessage.length > 32768) {\n    msg.FormSettings.ServerMessage = flow.get('message-too-long') || 'message-too-long'\n    return [msg,null]\n  }\n\n  if (Privacy !== 'agreed') {\n    msg.FormSettings.ServerMessage = flow.get('missing-privacy-agreement') || 'missing-privacy-agreement'\n    return [msg,null]\n  }\n\n/**** ready to send message by email ****/\n\n  msg.topic   = (flow.get('email-topic')   || 'email-topic')\n  msg.payload = (flow.get('email-message') || 'email-message')\n    .replace('${UserName}',     () => msg.FormSettings.UserName)\n    .replace('${EMailAddress}', () => msg.FormSettings.EMailAddress)\n    .replace('${UserMessage}',  () => msg.FormSettings.UserMessage)\n  \n  return [msg,msg]\n\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 140,
+        "y": 160,
+        "wires": [
+            [
+                "44f6c967110be884"
+            ],
+            [
+                "1e31dc6369b9cb03"
+            ]
+        ]
+    },
+    {
+        "id": "44f6c967110be884",
+        "type": "function",
+        "z": "9ef077928ad5b75f",
+        "name": "build form",
+        "func": "  if ((msg.topic !== '') && (msg.payload !== '')) {\n    msg.payload = flow.get('feedback-sent') || 'feedback-sent'\n  } else {\n    msg.payload = (flow.get('feedback-form') || 'feedback-form')\n      .replace('${ServerMessage}', msg.FormSettings.ServerMessage)\n      .replace('${UserName}',      msg.FormSettings.UserName)\n      .replace('${EMailAddress}',  msg.FormSettings.EMailAddress)\n      .replace('${UserMessage}',   msg.FormSettings.UserMessage)\n  }\n\n  msg.statusCode = 200\n  return msg\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 160,
+        "wires": [
+            [
+                "e22102395f7cc6b2"
+            ]
+        ]
+    },
+    {
+        "id": "cd8d0dcd5151fae1",
+        "type": "file in",
+        "z": "9ef077928ad5b75f",
+        "name": "email-topic.txt",
+        "filename": "feedback/email-topic.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 140,
+        "y": 800,
+        "wires": [
+            [
+                "7bb7da4e99f51287"
+            ]
+        ]
+    },
+    {
+        "id": "06ee071aefbbf7e0",
+        "type": "file in",
+        "z": "9ef077928ad5b75f",
+        "name": "email-message.txt",
+        "filename": "feedback/email-message.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 150,
+        "y": 840,
+        "wires": [
+            [
+                "15f6ad8607e83b4e"
+            ]
+        ]
+    },
+    {
+        "id": "7bb7da4e99f51287",
+        "type": "change",
+        "z": "9ef077928ad5b75f",
+        "name": "save in flow context",
+        "rules": [
+            {
+                "t": "set",
+                "p": "email-topic",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 800,
+        "wires": [
+            [
+                "06ee071aefbbf7e0"
+            ]
+        ]
+    },
+    {
+        "id": "15f6ad8607e83b4e",
+        "type": "change",
+        "z": "9ef077928ad5b75f",
+        "name": "save in flow context",
+        "rules": [
+            {
+                "t": "set",
+                "p": "email-message",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 840,
+        "wires": [
+            [
+                "9e2933e75a1af3e2"
+            ]
+        ]
+    },
+    {
+        "id": "06a3d1fc0e2ba293",
+        "type": "file in",
+        "z": "9ef077928ad5b75f",
+        "name": "feedback-sent.html",
+        "filename": "feedback/feedback-sent.html",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 150,
+        "y": 320,
+        "wires": [
+            [
+                "a53614c3ca799c01"
+            ]
+        ]
+    },
+    {
+        "id": "a53614c3ca799c01",
+        "type": "change",
+        "z": "9ef077928ad5b75f",
+        "name": "save in flow context",
+        "rules": [
+            {
+                "t": "set",
+                "p": "feedback-sent",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 320,
+        "wires": [
+            [
+                "408713e4db5e4bab"
+            ]
+        ]
+    },
+    {
+        "id": "1e31dc6369b9cb03",
+        "type": "e-mail",
+        "z": "9ef077928ad5b75f",
+        "server": "smtp.mail.de",
+        "port": "465",
+        "secure": true,
+        "tls": true,
+        "name": "a-rozek@mail.de",
+        "dname": "email",
+        "x": 310,
+        "y": 100,
+        "wires": []
+    }
+]
