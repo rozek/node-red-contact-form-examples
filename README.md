@@ -75,7 +75,9 @@ Some of the assets shown above are actually templates which will have to be cust
 
 ### Installation ###
 
+This feedback mechanisms may be used as follows:
 
+* import [this flow](feedback.json) into your Node-RED instance
 
 ### Postman Collection ###
 
