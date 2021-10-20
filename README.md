@@ -68,14 +68,18 @@ Most probably, these files will have to be customized for your specific use case
 
 Some of the assets shown above are actually templates which will have to be customized by Node-RED before being sent. These templates contain the following placeholders:
 
-* **`ServerMessage`**<br>
-* **`UserName`**<br>
-* **`EMailAddress`**<br>
-* **`UserMessage`**<br>
+* **`ServerMessage`**<br>will either contain an empty string (`''`) or an error message inserted by Node-RED because of an input validation error
+* **`UserName`**<br>will contain a string with the name of the contacting user as entered into the feedback form
+* **`EMailAddress`**<br>will contain a string with the email address of the contacting user as entered into the feedback form
+* **`UserMessage`**<br>will contain a string with the message of the contacting user as entered into the feedback form
 
 ### Installation ###
 
+
+
 ### Postman Collection ###
+
+
 
 ## Contact Form (with Token) ##
 
