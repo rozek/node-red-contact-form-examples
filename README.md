@@ -88,6 +88,59 @@ As usual, this repository contains a [collection of requests](PostmanCollection.
 
 ## Contact Form (with Token) ##
 
+This example does not make any assumptions about the visiting user
+
+
+
+
+
+![](contact-form.png)
+
+#### Additional Assets ####
+
+Besides the actual flow, this example also comes with a set of files containing the web pages and messages this flow uses:
+
+* **`contact/contact-form.html`**<br>contains the web page with the HTML form a user has to complete in order to contact the web page operator. It should contain the placeholders `${ServerMessage}`, `${UserName}`, `${EMailAddress}`, `${UserMessage}` and `${Token}` - all these placeholders will be replaced with their values before the web page is presented to the user
+* **`contact/contact-made.html`**<br>contains the web page which informs a user about a successful approach
+* **`contact/name-too-long.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered user name is longer than 80 characters
+* **`contact/invalid-name.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered user name contains invalid (i.e., control) characters
+* **`contact/missing-email-address.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if no email address is was entered
+* **`contact/email-address-too-short.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered email address is shorter than 6 characters
+* **`contact/email-address-too-long.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered email address is longer than 255 characters
+* **`contact/invalid-email-address.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered email address looks (syntactically) invalid
+* **`contact/missing-message.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if no contact message was entered
+* **`contact/message-too-short.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered contact message is shorter than 3 characters
+* **`contact/message-too-long.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the entered contact message is longer than 32768 characters
+* **`contact/missing-privacy-agreement.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if a user forgot to agree to the data privacy statement
+* **`contact/invalid-token.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` if the token is either invalid, has already been used or does not permit a message submission at the given time
+* **`contact/internal-error.txt`**<br>defines the text to be written into placeholder `${ServerMessage}` in case of an internal error
+* **`contact/email-topic.txt`**<br>defines the (constant) "subject" of the contact email. Chosen wisely, it may be used to filter contact messages within an email client
+* **`contact/email-message.txt`**<br>contains a template for the actual contact email. It should contain the placeholders `${UserName}`, `${EMailAddress}` and `${UserMessage}` - all these placeholders will be replaced by their related form inputs before the email is sent.
+
+Most probably, these files will have to be customized for your specific use case.
+
+#### Text Placeholders for these Assets ####
+
+Some of the assets shown above are actually templates which will have to be customized by Node-RED before being sent. These templates contain the following placeholders:
+
+* **`ServerMessage`**<br>will either contain an empty string (`''`) or an error message inserted by Node-RED because of an input validation error
+* **`UserName`**<br>will contain a string with the name of the contacting user as entered into the contact form
+* **`EMailAddress`**<br>will contain a string with the email address of the contacting user as entered into the contact form
+* **`UserMessage`**<br>will contain a string with the message of the contacting user as entered into the contact form
+* **`Token`**<br>will contain a string with the token which controls during which time period a contact may be established
+
+### Installation ###
+
+This feedback mechanism may be used as follows:
+
+* import [this flow](contact.json) into your Node-RED instance
+* copy all assets files into a subfolder `contact` within your Node-RED working directory
+* customize these assets (particularly `contact/contact-form.html` and `contact/contact-made.html`) as needed
+* provide a file `DataPrivacyStatement.html` in your Node-RED working directory which contains a web page with your data privacy statement
+
+### Postman Collection ###
+
+As usual, this repository contains a [collection of requests](PostmanCollection.json) which is to be imported into a [Postman](https://www.postman.com/) instance and simplfies testing the feedback mechanism.
 
 ## License ##
 
