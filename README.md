@@ -75,7 +75,7 @@ Some of the assets shown above are actually templates which will have to be cust
 
 ### Installation ###
 
-This feedback mechanisms may be used as follows:
+This feedback mechanism may be used as follows:
 
 * import [this flow](feedback.json) into your Node-RED instance
 * copy all assets files into a subfolder `feedback` within your Node-RED working directory
@@ -84,7 +84,7 @@ This feedback mechanisms may be used as follows:
 
 ### Postman Collection ###
 
-
+As usual, this repository contains a [collection of requests](PostmanCollection.json) which is to be imported into a [Postman](https://www.postman.com/) instance and simplfies testing the feedback mechanism.
 
 ## Contact Form (with Token) ##
 
