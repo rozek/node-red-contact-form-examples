@@ -73,7 +73,7 @@ Some of the assets shown above are actually templates which will have to be cust
 
 ### Installation ###
 
-This feedback mechanism may be used as follows:
+This feedback mechanism may be installed as follows:
 
 * import [this flow](feedback.json) into your Node-RED instance
 * configure the "email" node, i.e. enter service details and credentials of an email account you may use for sending email messages
@@ -83,7 +83,7 @@ This feedback mechanism may be used as follows:
 
 ### Postman Collection ###
 
-As usual, this repository contains a [collection of requests](PostmanCollection.json) which is to be imported into a [Postman](https://www.postman.com/) instance and simplfies testing the feedback mechanism.
+As usual, this repository contains a [collection of requests](PostmanCollection.json) which is to be imported into a [Postman](https://www.postman.com/) instance and simplifies testing the feedback mechanism.
 
 ## Contact Form (with Token) ##
 
@@ -149,7 +149,7 @@ Some of the assets shown above are actually templates which will have to be cust
 
 ### Installation ###
 
-This feedback mechanism may be used as follows:
+This feedback mechanism may be installed as follows:
 
 * import [this flow](contact.json) into your Node-RED instance
 * configure the "email" node, i.e. enter service details and credentials of an email account you may use for sending email messages
@@ -159,7 +159,7 @@ This feedback mechanism may be used as follows:
 
 ### Postman Collection ###
 
-As usual, this repository contains a [collection of requests](PostmanCollection.json) which is to be imported into a [Postman](https://www.postman.com/) instance and simplfies testing the feedback mechanism.
+As usual, this repository contains a [collection of requests](PostmanCollection.json) which is to be imported into a [Postman](https://www.postman.com/) instance and simplifies testing the feedback mechanism.
 
 ## License ##
 
